@@ -1,25 +1,24 @@
 package ru.netology;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Game {
 
-    protected HashMap<String, Integer> playerList = new HashMap<>();
+    protected HashMap<String, Player> playerList = new HashMap<>();
 
+    public HashMap<String, Player> getPlayersList() {
+        return playerList;
+    }
     public void register(Player player) {
-        playerList.put(player.getName(), player.getStrength());
+        playerList.put(player.getName(), player);
 
     }
 
-//    public ArrayList<Player> getPlayers() {
-//        return playerList;
-//    }
 
     public Player findByName(String name) {
-        for (Player player : playerList.keySet()) {
-            if (name == playerList.keySet()) {
-                return player;
+        for (String playerName : playerList.keySet()) {
+            if (playerName == name) {
+        return playerList.get(name);
             }
         }
         throw new NotRegisteredException("This player" + name + "was not registered");
