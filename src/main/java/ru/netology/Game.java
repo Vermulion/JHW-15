@@ -1,23 +1,24 @@
 package ru.netology;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
 
-    protected ArrayList<Player> playerList = new ArrayList<>();
+    protected HashMap<String, Integer> playerList = new HashMap<>();
 
     public void register(Player player) {
-        playerList.add(player);
+        playerList.put(player.getName(), player.getStrength());
 
     }
 
-    public ArrayList<Player> getPlayers() {
-        return playerList;
-    }
+//    public ArrayList<Player> getPlayers() {
+//        return playerList;
+//    }
 
     public Player findByName(String name) {
-        for (Player player : getPlayers()) {
-            if (name == player.getName()) {
+        for (Player player : playerList.keySet()) {
+            if (name == playerList.keySet()) {
                 return player;
             }
         }
@@ -39,16 +40,9 @@ public class Game {
 }
 
 
-//    public void register(Player player) {
-//        Player[] tmp = new Player[players.length + 1];
-//        for (int i = 0; i < players.length; i++) {
-//            tmp[i] = players[i];
-//        }
-//        tmp[tmp.length - 1] = player;
-//        players = tmp;
-//    }
-
-
+//   Доработайте прошлую задачу, заменив коллекцию списка игроков на мапу (HashMap) для быстрого поиска информации
+//   об игроке по его имени. Создайте Pull Request этой ветки к основной, но не применяйте его. Убедитесь что все
+//   тесты проходят, CI работает на вашей ветке.
 
 
 /*
