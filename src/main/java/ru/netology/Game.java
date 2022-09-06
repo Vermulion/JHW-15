@@ -17,7 +17,7 @@ public class Game {
 
     public Player findByName(String name) {
         for (Player player : getPlayers()) {
-            if (name == player.getName()) {
+            if (name.equals(player.getName())) {
                 return player;
             }
         }
